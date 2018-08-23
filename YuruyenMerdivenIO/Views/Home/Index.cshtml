@@ -1,0 +1,50 @@
+﻿@model YuruyenMerdivenIO.Models.YuruyenMerdivenModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <h4>Yükseklik</h4>
+        @Html.DisplayFor(model => model.Yukseklik, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Yukseklik, new { @class = "form-control" })mm
+            @Html.ValidationMessageFor(model => model.Yukseklik, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <h4>Basamak Genişliği</h4>
+        @Html.DisplayFor(model => model.BasamakGenisligi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.BasamakGenisligi, new { @class = "form-control" })mm
+            @Html.ValidationMessageFor(model => model.BasamakGenisligi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <h4>Derece</h4>
+        @Html.DisplayFor(model => model.Derece, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Derece", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Derece, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            <div class="form-group text-right" @*style="margin-left:160px"*@>
+                @Html.ActionLink("Geri", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-info" })
+
+                <input type="submit" value="Gönder" class="btn btn-success" />
+
+            </div>
+        </div>
+    </div>
+</div>
+}
